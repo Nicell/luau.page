@@ -31,7 +31,7 @@ end
 
 local function getRecord(name: string): Record?
 	local response = net.request(
-		`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?type=CNAME&name=exact:{qualifiedName(name)}`,
+		`https://api.cloudflare.com/client/v4/zones/{zoneId}/dns_records?type=CNAME&name=exact:{qualifiedName(name)}`,
 		{
 			method = "GET",
 			headers = headers,
@@ -83,7 +83,7 @@ local function sendBatch()
 		return
 	end
 
-	local res = net.request(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records/batch`, {
+	local res = net.request(`https://api.cloudflare.com/client/v4/zones/zoneId}/dns_records/batch`, {
 		method = "POST",
 		headers = headers,
 		body = json.serialize(batch),
