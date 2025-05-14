@@ -18,7 +18,7 @@ jobs:
           path: cname-old.luau
           key: luau.page-${{ github.run_id }}
           restore-keys: |
-            luau.page
+            luau.page-
 
       - name: Update DNS Records
         run: lute scripts/update.luau
