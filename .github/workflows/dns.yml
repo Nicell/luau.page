@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dns:
+    name: Update DNS Records
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: CompeyDev/setup-rokit@v0.1.2
+
+      - name: Cache cname-old.luau
+        uses: actions/cache@v4
+        with:
+          key: luau.page
+          path: cname-old.luau
+
+      - name: Update DNS Records
+        run: lute scripts/update.luau
+        env:
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+
+      - name: Move cname.luau to cname-old.luau for caching
+        run: mv cname.luau cname-old.luau
