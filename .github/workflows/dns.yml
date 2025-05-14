@@ -15,8 +15,8 @@ jobs:
       - name: Cache cname-old.luau
         uses: actions/cache@v4
         with:
-          key: luau.page
-          path: cname-old.luau-${{ hashFiles('cname.luau') }}
+          key: luau.page-${{ hashFiles('cname.luau') }}
+          path: cname-old.luau
 
       - name: Update DNS Records
         run: lute scripts/update.luau
