@@ -1,7 +1,9 @@
 local cf = require("./cloudflare")
 
 local cname = require("../cname")
-local success, oldCname = pcall(require, "../cname-old")
+local success, oldCname = pcall(function()
+  return require("../cname-old")
+end)
 
 if not success then
 	print("No old cname file found, creating a new one.")
