@@ -30,7 +30,7 @@ end
 
 local function getRecord(name: string): Record?
 	local response = net.request(
-		`https://api.cloudflare.com/client/v4/zones/{zoneId}/dns_records?type=CNAME&name=exact:{qualifiedName(name)}`,
+		`https://api.cloudflare.com/client/v4/zones/{zoneId}/dns_records?type=CNAME&name.exact={qualifiedName(name)}`,
 		{
 			method = "GET",
 			headers = headers,
