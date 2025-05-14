@@ -5,8 +5,7 @@ local json = require("./json")
 local domain = "luau.page"
 
 local headers = {
-	["X-Auth-Email"] = process.env.CLOUDFLARE_EMAIL,
-	["X-Auth-Key"] = process.env.CLOUDFLARE_API_KEY,
+	["Authorization"] = `Bearer {process.env.CLOUDFLARE_API_KEY}`,
 	["Content-Type"] = "application/json",
 }
 
@@ -93,7 +92,7 @@ local function sendBatch()
 
 	if not res.ok then
 		for _, error in data.errors do
-			print(`Error: {error.code} - {error.message} {error.documentation_url}`)
+			print(`Error: {error.code} - {error.message} {error.documentation_url or ""}`)
 		end
 		error("Failed to send batch request: " .. res.status)
 	end
