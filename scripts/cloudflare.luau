@@ -98,7 +98,7 @@ local function sendBatch()
 	end
 
 	print(
-		`Successfully deleted {#data.result.deletes} records, updated {#data.result.puts} records, and added {#data.result.posts} records.`
+		`Successfully deleted {#batch.deletes} records, updated {#batch.puts} records, and added {#batch.posts} records.`
 	)
 end
 
