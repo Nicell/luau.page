@@ -37,7 +37,7 @@ local function getRecord(name: string): Record?
 			headers = headers,
 		}
 	)
-	local data = json.parse(response.body)
+	local data = json.deserialize(response.body)
 	if data.success and #data.result > 0 then
 		return data.result[1]
 	end
@@ -86,10 +86,10 @@ local function sendBatch()
 	local res = net.request(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records/batch`, {
 		method = "POST",
 		headers = headers,
-		body = json.stringify(batch),
+		body = json.serialize(batch),
 	})
 
-	local data = json.parse(res.body)
+	local data = json.deserialize(res.body)
 
 	if not res.ok then
 		for _, error in data.errors do
