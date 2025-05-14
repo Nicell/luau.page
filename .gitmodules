@@ -1,0 +1,3 @@
+[submodule "site/htmluau"]
+	path = site/htmluau
+	url = https://github.com/Nicell/htmluau.git

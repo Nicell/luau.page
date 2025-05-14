@@ -1,4 +1,4 @@
-# luau.page
+# Luau.Page
 
 Free custom domain for your Luau website.
 
