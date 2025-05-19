@@ -56,7 +56,7 @@ return h.html({ lang = "en" }) {
 					},
 					" sites.",
 				},
-				h.div({ style = "display: flex; flex-direction: row; gap: 10px;" })(siteCards),
+				h.div({ style = "display: flex; flex-direction: row; flex-wrap: wrap; column-gap: 10px;" })(siteCards),
 				h.p() {
 					"Get your own custom domain for your Luau project.",
 					"In just a few steps, you can have your own subdomain on luau.page.",
