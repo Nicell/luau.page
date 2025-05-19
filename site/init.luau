@@ -1,10 +1,23 @@
 local h = require("@self/htmluau/src")
 local cname = require("./cname")
 
-local sites = 0
+local siteCards = {}
 
-for _, _ in cname do
-	sites += 1
+for key, _ in cname do
+	local isRoot = key == ""
+
+	local url = `https://{key .. (if isRoot then "" else ".")}luau.page`
+	-- Create a card for each site
+	local card = h.article() {
+		h.header() {
+			if isRoot then "This site!" else key,
+		},
+		h.a({ href = url }) {
+			url,
+		},
+	}
+
+	table.insert(siteCards, card)
 end
 
 return h.html({ lang = "en" }) {
@@ -39,10 +52,11 @@ return h.html({ lang = "en" }) {
 				h.p() {
 					"Luau.Page is currently serving",
 					h.strong() {
-						sites,
+						#siteCards,
 					},
 					" sites.",
 				},
+				h.div({ style = "display: flex; flex-direction: row; gap: 10px;" })(siteCards),
 				h.p() {
 					"Get your own custom domain for your Luau project.",
 					"In just a few steps, you can have your own subdomain on luau.page.",
