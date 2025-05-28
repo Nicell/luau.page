@@ -3,5 +3,5 @@ return {
 	[""] = "nicell.github.io",
 	["react"] = "jsdotlua.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
-	["ui-labs"] = "pepeeltoro41.github.io/ui-labs",
+	["ui-labs"] = "pepeeltoro41.github.io",
 }
