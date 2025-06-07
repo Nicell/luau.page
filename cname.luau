@@ -4,4 +4,5 @@ return {
 	["react"] = "jsdotlua.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
 	["ui-labs"] = "pepeeltoro41.github.io",
+	["zaphy"] = "froststarinteractive.github.io",
 }
