@@ -10,15 +10,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: CompeyDev/setup-rokit@v0.1.2
 
-      - name: Cache cname-old.luau
-        uses: actions/cache@v4
-        with:
-          path: cname-old.luau
-          key: luau.page-${{ github.run_id }}
-          restore-keys: |
-            luau.page-
+      - name: Retrieve previous version of cname.luau
+        run: git show HEAD~1:cname.luau > cname-old.luau
 
       - name: Update DNS Records
         run: lute scripts/update.luau
@@ -26,6 +23,3 @@ jobs:
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-
-      - name: Move cname.luau to cname-old.luau for caching
-        run: mv cname.luau cname-old.luau
