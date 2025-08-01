@@ -5,4 +5,5 @@ return {
 	["typeforge"] = "typeforge-luau.github.io",
 	["ui-labs"] = "pepeeltoro41.github.io",
 	["hermes"] = "froststarinteractive.github.io",
+	["satchel"] = "ryanlua.github.io",
 }
