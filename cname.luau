@@ -8,4 +8,5 @@ return {
 	["sentry"] = "grilme99.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
 	["ui-labs"] = "pepeeltoro41.github.io",
+	["purse"] = "ryanlua.github.io",
 }
