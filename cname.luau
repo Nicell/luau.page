@@ -2,6 +2,7 @@ return {
 	-- ["project"] = "user.github.io", (project.luau.page CNAME record for user.github.io/project)
 	[""] = "nicell.github.io",
 	["hermes"] = "froststarinteractive.github.io",
+	["lynx"] = "lynx-luau.pages.dev",
 	["playfab"] = "grilme99.github.io",
 	["purse"] = "ryanlua.github.io",
 	["react"] = "jsdotlua.github.io",
