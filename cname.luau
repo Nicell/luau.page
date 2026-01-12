@@ -6,6 +6,7 @@ return {
 	["playfab"] = "grilme99.github.io",
 	["purse"] = "ryanlua.github.io",
 	["react"] = "jsdotlua.github.io",
+	["rocket"] = "team-fireworks.github.io",
 	["satchel"] = "ryanlua.github.io",
 	["sentry"] = "grilme99.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
