@@ -2,6 +2,7 @@ return {
 	-- ["project"] = "user.github.io", (project.luau.page CNAME record for user.github.io/project)
 	[""] = "nicell.github.io",
 	["hermes"] = "froststarinteractive.github.io",
+	["LightBorn"] = "error-cezar.github.io",
 	["lynx"] = "lynx-luau.pages.dev",
 	["playfab"] = "grilme99.github.io",
 	["purse"] = "ryanlua.github.io",
@@ -11,5 +12,4 @@ return {
 	["sentry"] = "grilme99.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
 	["ui-labs"] = "pepeeltoro41.github.io",
-	["LightBorn"] = "error-cezar.github.io"
 }
