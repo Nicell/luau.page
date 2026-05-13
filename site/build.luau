@@ -1,6 +1,15 @@
 local fs = require("@lute/fs")
-local site = require("./")
+local home = require("./")
+local packages = require("./packages")
+
+local function writeString(path: string, contents: string)
+	local handle = fs.open(path, "w")
+	fs.write(handle, contents)
+	fs.close(handle)
+end
 
 pcall(fs.mkdir, "dist")
+pcall(fs.mkdir, "dist/packages")
 
-fs.writestringtofile("dist/index.html", site())
+writeString("dist/index.html", home())
+writeString("dist/packages/index.html", packages())

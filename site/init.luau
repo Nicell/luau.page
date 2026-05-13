@@ -1,4 +1,5 @@
 local h = require("@self/htmluau/src")
+local layout = require("@self/layout")
 local cname = require("./cname")
 
 local siteCards = {}
@@ -7,7 +8,6 @@ for key, _ in cname do
 	local isRoot = key == ""
 
 	local url = `https://{key .. (if isRoot then "" else ".")}luau.page`
-	-- Create a card for each site
 	local card = h.article() {
 		h.header() {
 			if isRoot then "This site!" else key,
@@ -20,31 +20,23 @@ for key, _ in cname do
 	table.insert(siteCards, card)
 end
 
-return h.html({ lang = "en" }) {
-	h.head() {
-		h.meta({ charset = "utf-8" }),
-		h.meta({ name = "viewport", content = "width=device-width, initial-scale=1" }),
-		h.meta({ name = "color-scheme", content = "dark light" }),
-		h.title() {
-			"Luau.Page",
-		},
-		h.meta({ name = "description", content = "Custom domains for the Luau community" }),
-		h.link({
-			rel = "icon",
-			href = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAGFBMVEUAov4Aov4Aof4Aov7l8/6l0v5ctP4Fof7s4QukAAAABHRSTlMBRY/MU7dEywAAALZJREFUeNqNk0EOwyAMBGvs3f3/j1sXWkKDK+biQ0YwisXjFPdm/76bJL0cq4VBdVBTp5RcSS2ZbqxJTQVe3QBwEfRLJJRakcCPYEUCIqkTugCpVQkEqoQJJdn5XwB1Y7khtoJ9BYR2zEUAkkBxmzBuYOQkuEnIbwJyAgFxSWgpAATSec8QMRM8ZYIIBIGUIewW0c9g9JkJA7N2lSKTx6on00nrsupC4txkLdWPzNxrYR7kp8/+CUlvDvtDdoJIAAAAAElFTkSuQmCC",
-		}),
-		h.link({
-			rel = "stylesheet",
-			href = "https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.classless.min.css",
-		}),
-	},
-	h.body() {
+return layout({
+	title = "Luau.Page",
+	description = "Custom domains for the Luau community",
+	body = {
 		h.header() {
 			h.h1() {
 				"Luau.Page",
 			},
 			h.p() {
-				"Custom domains for the Luau community",
+				"Custom domains for the Luau community.",
+			},
+			h.p() {
+				"Looking for Loom packages? See the ",
+				h.a({ href = "/packages" }) {
+					"package directory",
+				},
+				".",
 			},
 		},
 		h.main() {
@@ -101,4 +93,4 @@ return h.html({ lang = "en" }) {
 			},
 		},
 	},
-}
+})
