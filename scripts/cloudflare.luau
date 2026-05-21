@@ -37,7 +37,7 @@ local function getRecord(name: string): Record?
 		}
 	)
 	local data = json.asObject(json.deserialize(response.body))
-	assert (data, "Expected JSON object in response")
+	assert(data, "Expected JSON object in response")
 	if data.success then
 		local result = json.asArray(data.result)
 		assert(result, "Expected result array in response")
@@ -86,7 +86,7 @@ end
 
 local function sendBatch()
 	if #batch.deletes == 0 and #batch.puts == 0 and #batch.posts == 0 then
-		print("No changes to send.")
+		print("No Cloudflare changes to send.")
 		return
 	end
 
@@ -110,7 +110,7 @@ local function sendBatch()
 	end
 
 	print(
-		`Successfully deleted {#batch.deletes} records, updated {#batch.puts} records, and added {#batch.posts} records.`
+		`Cloudflare: successfully deleted {#batch.deletes} records, updated {#batch.puts} records, and added {#batch.posts} records.`
 	)
 end
 

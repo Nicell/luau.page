@@ -1,4 +1,5 @@
 local cf = require("./cloudflare")
+local porkbun = require("./porkbun")
 
 local cname = require("../cname")
 local success, oldCname = pcall(function()
@@ -42,16 +43,20 @@ end
 for name, entry in add do
 	print("add", name)
 	cf.addRecord(name, entry.content, entry.proxied)
+	porkbun.addRecord(name, entry.content)
 end
 
 for name, entry in update do
 	print("update", name)
 	cf.updateRecord(name, entry.content, entry.proxied)
+	porkbun.updateRecord(name, entry.content)
 end
 
 for name, _ in delete do
 	print("delete", name)
 	cf.deleteRecord(name)
+	porkbun.deleteRecord(name)
 end
 
 cf.sendBatch()
+porkbun.printSummary()
