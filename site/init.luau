@@ -44,7 +44,7 @@ return h.html({ lang = "en" }) {
 			},
 			h.div({ style = "display: flex; flex-wrap: wrap; gap: 10px;" }) {
 				h.map(sites, function(site)
-					local url = `https://{site}.luau.page`
+					local url = `http://{site}.luau.page`
 					return h.article() {
 						h.a({ href = url }) { site },
 					}
