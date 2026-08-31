@@ -6,7 +6,6 @@ local cname: Entries = {
 	[""] = "nicell.github.io",
 	["discord"] = "discordluau-docs.devcomp.workers.dev",
 	["hermes"] = "froststarinteractive.github.io",
-	["lightborn"] = "lightborn-lua.github.io",
 	["lynx"] = "lynx-luau.pages.dev",
 	["purse"] = "ryanlua.github.io",
 	["react"] = "jsdotlua.github.io",
