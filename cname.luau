@@ -13,6 +13,7 @@ local cname: Entries = {
 	["satchel"] = "ryanlua.github.io",
 	["typeforge"] = "typeforge-luau.github.io",
 	["ui-labs"] = "pepeeltoro41.github.io",
+	["signals"] = "maneetoo.github.io",
 }
 
 return cname
